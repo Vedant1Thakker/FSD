@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+        }
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #6c63ff;
+            box-shadow: 0 0 8px rgba(108,99,255,0.4);
+        }
+        .inline {
+            width: auto;
+            margin-right: 6px;
+        }
+        .group {
+            margin-top: 8px;
+        }
+        .error {
+            color: #ff4d4d;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>✨ Student Registration ✨</h2>
+
+    <form onsubmit="return validateForm()">
+        
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name" style="border:2px solid #6c63ff"> <!-- Inline CSS -->
+        <div id="nameError" class="error"></div>
+
+        <label>Email ID</label>
+        <input type="text" id="email" placeholder="example@email.com">
+        <div id="emailError" class="error"></div>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="10-digit number">
+        <div id="phoneError" class="error"></div>
+
+        <label>Gender</label>
+        <div class="group">
+            <input type="radio" name="gender" class="inline"> Male
+            <input type="radio" name="gender" class="inline"> Female
+        </div>
+        <div id="genderError" class="error"></div>
+
+        <label>Date of Birth</label>
+        <div class="group">
+            <select id="day"><option value="">Day</option></select>
+            <select id="month"><option value="">Month</option></select>
+            <select id="year"><option value="">Year</option></select>
+        </div>
+        <div id="dobError" class="error"></div>
+
+        <label>Languages Known</label>
+        <div class="group">
+            <input type="checkbox" class="inline"> English
+            <input type="checkbox" class="inline"> Hindi
+        </div>
+
+        <label>Address</label>
+        <textarea rows="3" placeholder="Enter your address"></textarea>
+
+        <label>Subjects</label>
+        <div class="group">
+            <input type="radio" name="subject" class="inline"> Math
+            <input type="radio" name="subject" class="inline"> Science
+            <input type="radio" name="subject" class="inline"> Computer
+        </div>
+
+        <br>
+        <input type="submit" value="Register 🚀">
+    </form>
+</div>
+
+<script>
+    for (let d = 1; d <= 31; d++) day.innerHTML += `<option>${d}</option>`;
+    for (let m = 1; m <= 12; m++) month.innerHTML += `<option>${m}</option>`;
+    for (let y = 1990; y <= 2025; y++) year.innerHTML += `<option>${y}</option>`;
+
+    function validateForm() {
+        let valid = true;
+        document.querySelectorAll('.error').forEach(e => e.innerText = "");
+
+        if (name.value === "") { nameError.innerText = "Name is required"; valid = false; }
+        if (!email.value.includes("@")) { emailError.innerText = "Invalid email"; valid = false; }
+        if (phone.value.length !== 10 || isNaN(phone.value)) { phoneError.innerText = "Phone must be 10 digits"; valid = false; }
+        if (!document.querySelector('input[name="gender"]:checked')) { genderError.innerText = "Select gender"; valid = false; }
+        if (day.value === "" || month.value === "" || year.value === "") { dobError.innerText = "Select complete DOB"; valid = false; }
+        return valid;
+    }
+</script>
+
+</body>
+</html>
+

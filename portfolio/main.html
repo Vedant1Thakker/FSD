@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vedant Thakker</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f, #cdb4db, #bde0fe, #a2d2ff);
+  background-size: 500% 500%;
+  animation: bgFlow 18s ease infinite;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* FLOATING GRADIENT BLOBS */
+.blob {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  filter: blur(100px);
+  opacity: 0.8;
+  animation: floatBlob 12s infinite alternate ease-in-out;
+}
+
+.blob.one {
+  background: linear-gradient(135deg, #ff006e, #ffbe0b);
+  top: -120px;
+  left: -120px;
+}
+
+.blob.two {
+  background: linear-gradient(135deg, #8338ec, #3a86ff);
+  bottom: -140px;
+  right: -140px;
+  animation-delay: 4s;
+}
+
+/* GLOBAL */
+section {
+  padding: 120px 12%;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  border-radius: 48px;
+  margin: 80px 6%;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+p {
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+a {
+  background: linear-gradient(90deg, #ff006e, #8338ec);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.hero-text {
+  flex: 2;
+  animation: slideIn 1.2s ease forwards;
+}
+
+.hero-text span {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #ff006e, #8338ec);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-img {
+  flex: 1;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 28px;
+  animation: floatImg 5s infinite ease-in-out;
+}
+
+/* MANIFESTO */
+.manifesto p {
+  margin-bottom: 22px;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.timeline-item::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+/* PROJECTS */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.project h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.project span {
+  display: block;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #ff006e, #ffbe0b);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* VISION */
+.vision {
+  background: linear-gradient(135deg, rgba(255,214,255,0.85), rgba(189,224,254,0.85), rgba(162,210,255,0.85));
+  border-radius: 50px;
+  padding: 120px 12%;
+  animation: glow 6s infinite alternate;
+}
+
+/* FOOTER */
+footer {
+  padding: 80px 12%;
+  font-size: 0.95rem;
+  text-align: center;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 40px;
+  margin: 100px 6% 60px;
+}
+
+/* ANIMATIONS */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatImg {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes floatBlob {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-60px) translateX(60px); }
+}
+
+@keyframes glow {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.1); }
+}
+
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  h1 { font-size: 3.2rem; }
+  .hero { flex-direction: column-reverse; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="blob one"></div>
+<div class="blob two"></div>
+
+<section class="hero">
+  <div class="hero-text">
+    <span>AI • Policy • Human Impact ✨</span>
+    <h1>
+      I build technology <br>
+      that helps people live better.
+    </h1>
+    <p>
+      I’m Vedant Thakker, a third-year B.Tech student in Artificial Intelligence & Machine Learning,
+      deeply curious about technology, finance, and international policy — and how they shape real human lives.
+    </p>
+  </div>
+
+  <div class="hero-img">
+    <img src="profile.jpg" alt="Vedant Thakker">
+  </div>
+</section>
+
+<section class="manifesto">
+  <h2>What I Believe In</h2>
+  <p>
+    I believe technology should feel empowering, not overwhelming.
+    I believe policy and engineering should talk to each other.
+    And I believe the future should be built with empathy, not ego.
+  </p>
+  <p>
+    I love people, systems, and the messy space where both collide.
+    That’s where the most meaningful problems live.
+  </p>
+</section>
+
+<section>
+  <h2>The Journey So Far</h2>
+  <div class="timeline">
+    <div class="timeline-item"><p>Started with Model United Nations and hands-on engineering — building Arduino-based systems and presenting them at a national science fair.</p></div>
+    <div class="timeline-item"><p>Took ownership in student leadership, managing digital outreach across university platforms reaching over 300K people.</p></div>
+    <div class="timeline-item"><p>Currently serving as Deputy General for my university’s first tech-centric Model United Nations.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Things I’ve Built</h2>
+  <div class="projects">
+    <div class="project">
+      <span>AI × Diplomacy</span>
+      <h3>Diplobot 🤖🌍</h3>
+      <p>An AI-powered diplomacy assistant designed to help MUN delegates simulate country stances, generate diplomatic responses, and structure resolutions.</p>
+      <a href="https://colab.research.google.com/drive/1yVGaOdp16HGKVzvNtVCxpTSJrcxFdlsg?usp=sharing" target="_blank">Explore Diplobot →</a>
+    </div>
+    <div class="project">
+      <span>ML × Finance</span>
+      <h3>Closing Price Predictor 📈</h3>
+      <p>A machine learning model that predicts stock closing prices using historical market data, focusing on trends, features, and financial intuition.</p>
+    </div>
+  </div>
+</section>
+
+<section class="vision">
+  <h2>Looking Ahead</h2>
+  <p>I want to build intelligent systems that quietly improve everyday life — systems that support global stability, economic resilience, and human well-being at scale.</p>
+</section>
+
+<footer>
+  Let’s build something meaningful →
+  <a href="https://www.linkedin.com/in/vedant-thakker-b1651321b/" target="_blank">LinkedIn</a>
+</footer>
+
+</body>
+</html>

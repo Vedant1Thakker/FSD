@@ -1,0 +1,15 @@
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #6c63ff, #5a54d1);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(108,99,255,0.4);
+}
